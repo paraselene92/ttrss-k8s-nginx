@@ -1,6 +1,6 @@
-FROM nginx:alpine
+FROM nginx:1.30.6-alpine
 
-HEALTHCHECK CMD curl --fail http://localhost/tt-rss/index.php || exit 1
+HEALTHCHECK CMD wget -q --spider http://localhost/tt-rss/index.php || exit 1
 
 COPY nginx.conf /etc/nginx/templates/nginx.conf.template
 
